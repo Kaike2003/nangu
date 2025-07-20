@@ -1,2 +1,0 @@
--- AlterTable
-ALTER TABLE `user` ADD COLUMN `type` ENUM('ADMIN', 'USER') NOT NULL DEFAULT 'USER';

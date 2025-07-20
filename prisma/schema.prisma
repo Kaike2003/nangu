@@ -1,0 +1,54 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String   @id @default(uuid())
+  name      String
+  password  String
+  phone     String   @unique
+  secret    String   @unique
+  role      Role     @default(user)
+  checked   Boolean  @default(false)
+  createAt  DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  Image     Image[]
+  Video     Video[]
+
+  @@map("user")
+}
+
+enum Role {
+  admin
+  user
+}
+
+model Video {
+  id        String   @id @default(uuid())
+  filename  String   @unique
+  size      Int
+  published Boolean  @default(false)
+  createAt  DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  User  User?   @relation(fields: [phone], references: [phone], onDelete: Cascade, onUpdate: Cascade)
+  phone String?
+}
+
+model Image {
+  id        String   @id @default(uuid())
+  filename  String   @unique
+  size      Int
+  published Boolean  @default(false)
+  createAt  DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  User  User?   @relation(fields: [phone], references: [phone], onDelete: Cascade, onUpdate: Cascade)
+  phone String?
+}

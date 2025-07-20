@@ -1,0 +1,38 @@
+{
+  "name": "nangu",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "tsx watch ./src/app/infra/api/main.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.11.0",
+  "dependencies": {
+    "@prisma/client": "6.8.2",
+    "@supabase/supabase-js": "^2.52.0",
+    "@types/cors": "^2.8.18",
+    "@types/express": "^5.0.2",
+    "@types/morgan": "^1.9.9",
+    "argon2": "^0.43.0",
+    "axios": "^1.9.0",
+    "cors": "^2.8.5",
+    "decoval": "^1.0.1",
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0",
+    "express-list-endpoints": "^7.1.1",
+    "jsonwebtoken": "^9.0.2",
+    "morgan": "^1.10.0",
+    "multer": "^2.0.1",
+    "prisma": "^6.8.2",
+    "short-unique-id": "^5.3.2",
+    "tsx": "^4.19.4",
+    "typescript": "^5.8.3"
+  },
+  "devDependencies": {
+    "@types/jsonwebtoken": "^9.0.9",
+    "@types/multer": "^1.4.12"
+  }
+}

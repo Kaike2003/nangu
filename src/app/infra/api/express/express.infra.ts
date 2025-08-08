@@ -9,7 +9,6 @@ import { ResetPasswordUserRoute } from "./route/user/reset-password-user.route";
 import { CreateImageRoute } from "./route/image/create-image.route";
 import { CreateVideoRoute } from "./route/video/create-video.route";
 import { GetAllImageRoute } from "./route/image/getAll-image.route";
-import { DownloadImageRoute } from "./route/image/download-image.route";
 import { GetAllVideoRoute } from "./route/video/getAll-video.route";
 import { DownloadVideoRoute } from "./route/video/download-image.route";
 import { DeleteOneImageRoute } from "./route/image/deleteOne-image.route";
@@ -51,7 +50,6 @@ export class ExpressInfra implements Api {
 
     const createImageRoute = await CreateImageRoute.create().execute();
     const getAllImageRoute = await GetAllImageRoute.create().execute();
-    const downloadImageRoute = await DownloadImageRoute.create().execute();
     const deleteOneImageRoute = await DeleteOneImageRoute.create().execute();
     const changeStatusImageRoute = await ChangeStatusImageRoute.create().execute();
 
@@ -59,7 +57,6 @@ export class ExpressInfra implements Api {
       version,
       createImageRoute,
       getAllImageRoute,
-      downloadImageRoute,
       deleteOneImageRoute,
       changeStatusImageRoute
     );

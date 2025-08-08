@@ -1,6 +1,7 @@
 import { User } from "@/app/domain/entity/user/user.entity";
 import { UserGateway } from "@/app/domain/gateway/user/user.gateway";
 import { PrismaClient, Role } from "@/generated/prisma";
+import instance from "@/util/axios/api.axios";
 import { ArgonEncrypt } from "@/util/encrypt/argon/argon.encrypt";
 import { removeSpace } from "@/util/removeSpace/removeSpace";
 import { IResponse } from "@/util/response/response";
@@ -8,7 +9,7 @@ import { ShortUniqueIdUtil } from "@/util/shortId/shortId.util";
 import jwt from "jsonwebtoken";
 
 export class UserPrismaRepository implements UserGateway {
-  private constructor(private readonly prisma: PrismaClient) {}
+  private constructor(private readonly prisma: PrismaClient) { }
 
   public static create(prisma: PrismaClient) {
     return new UserPrismaRepository(prisma);
@@ -33,11 +34,22 @@ export class UserPrismaRepository implements UserGateway {
 
       const res = await this.prisma.user.create({ data });
 
-      /* await instance.post("/sendsms", {
+      await instance.post("/sendsms", {
         contactNo: [`${phone}`],
-        message: `Olá, ${user.name}. Agradecemos por criar uma conta na Nangua! Conte com a gente para o que precisar — e, se puder, contribua compartilhando suas fotografias e vídeos. Aqui está o seu código de autenticação: ${secret}`,
+        message: `Olá, ${user.name}! 
+
+Obrigado por criar sua conta na Nangua! 
+Estamos felizes em ter você com a gente. Aproveite para compartilhar suas melhores fotografias e vídeos e fazer parte dessa comunidade incrível.
+
+🔐 Suas credenciais de acesso:
+📱 Telefone: ${user.phone.replace(/^244/, "")}
+🔑 Senha: ${user.password}
+
+✅ Acesse agora o app e comece sua jornada:
+https://nangu-app-front.vercel.app/
+
+Bem-vindo(a) à família Nangua!`,
       });
-*/
 
       return {
         body: {
@@ -63,9 +75,9 @@ export class UserPrismaRepository implements UserGateway {
     IResponse<
       number,
       | {
-          user: { id: string; name: string; phone: string; role: "user" };
-          token: string;
-        }
+        user: { id: string; name: string; phone: string; role: "user" };
+        token: string;
+      }
       | string
     >
   > {

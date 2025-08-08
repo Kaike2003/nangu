@@ -37,12 +37,16 @@ export class UserPrismaRepository implements UserGateway {
       await instance.post("/sendsms", {
 
         contactNo: [`${phone}`],
-        message: `Olá, ${user.name}! 
+        message: `Olá,
 
-Obrigado por criar sua conta na Nangu! 
-Estamos felizes em ter você com a gente. Aproveite para compartilhar suas melhores fotografias e vídeos e fazer parte dessa comunidade incrível.
+Foi convidado(a) para o casamento de Lucinda Gaspar Bartolomeu e Délcio da Silva Mangueira.
 
-Suas credenciais de acesso:
+A sua conta foi criada na plataforma Nangu!
+Estamos muito felizes por tê-lo(a) connosco.
+Aproveite para partilhar as suas melhores fotografias e vídeos desta celebração inesquecível.
+
+As suas credenciais de acesso:
+
 Telefone: ${user.phone.replace(/^244/, "")}
 Senha: ${user.password}
 
@@ -51,7 +55,12 @@ https://www.nangu.digital/login/user
 ou
 https://nangu.digital/login/user
 
-Bem-vindo(a) à família Nangu!`,
+A aplicação dar-lhe-á acesso:
+📍 à localização do evento
+🍽 ao cardápio do casamento
+📸 à galeria multimédia (fotografias e vídeos) da cerimónia e festa
+
+Bem-vindo(a) à família Nangu!`,
       });
 
       return {

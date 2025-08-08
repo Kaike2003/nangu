@@ -38,15 +38,15 @@ export class UserPrismaRepository implements UserGateway {
         contactNo: [`${phone}`],
         message: `Olá, ${user.name}! 
 
-Obrigado por criar sua conta na Nangua! 
+Obrigado por criar sua conta na Nangu! 
 Estamos felizes em ter você com a gente. Aproveite para compartilhar suas melhores fotografias e vídeos e fazer parte dessa comunidade incrível.
 
-🔐 Suas credenciais de acesso:
-📱 Telefone: ${user.phone.replace(/^244/, "")}
-🔑 Senha: ${user.password}
+Suas credenciais de acesso:
+Telefone: ${user.phone.replace(/^244/, "")}
+Senha: ${user.password}
 
-✅ Acesse agora o app e comece sua jornada:
-https://nangu-app-front.vercel.app/
+Acesse agora o app e comece sua jornada:
+https:/nangu.digital/
 
 Bem-vindo(a) à família Nangua!`,
       });

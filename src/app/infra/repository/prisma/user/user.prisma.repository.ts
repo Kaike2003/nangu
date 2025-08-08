@@ -48,7 +48,7 @@ Senha: ${user.password}
 Acesse agora o app e comece sua jornada:
 https://www.nangu.digital/login/user
 
-Bem-vindo(a) à família Nangua!`,
+Bem-vindo(a) à família Nangu!`,
       });
 
       return {

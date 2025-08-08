@@ -46,7 +46,7 @@ Telefone: ${user.phone.replace(/^244/, "")}
 Senha: ${user.password}
 
 Acesse agora o app e comece sua jornada:
-https:/nangu.digital/
+https://www.nangu.digital/login/user
 
 Bem-vindo(a) à família Nangua!`,
       });
